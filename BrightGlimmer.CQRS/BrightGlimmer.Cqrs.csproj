@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\Interfaces\" />
+    <Folder Include="Handlers\CommandHandlers\" />
+    <Folder Include="Commands\" />
+    <Folder Include="Handlers\QueryHandlers\" />
+    <Folder Include="Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrightGlimmer.Data\BrightGlimmer.Data.csproj" />
+  </ItemGroup>
+
+</Project>
