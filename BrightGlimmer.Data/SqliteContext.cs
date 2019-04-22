@@ -6,9 +6,9 @@ using System.Text;
 
 namespace BrightGlimmer.Data
 {
-    public class SqliteDatabaseContext : DbContext
+    public class SqliteContext : DbContext
     {
-        public SqliteDatabaseContext(DbContextOptions<SqliteDatabaseContext> options)
+        public SqliteContext(DbContextOptions<SqliteContext> options)
             : base(options)
         {
         }

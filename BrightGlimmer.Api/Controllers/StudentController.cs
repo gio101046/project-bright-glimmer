@@ -13,9 +13,9 @@ namespace BrightGlimmer.Api.Controllers
     public class StudentController : ControllerBase
     {
         // private readonly IMediator mediator;
-        private readonly SqliteStudentRepository studentRepository;
+        private readonly StudentRepository studentRepository;
 
-        public StudentController(SqliteStudentRepository studentRepository)
+        public StudentController(StudentRepository studentRepository)
         {
             this.studentRepository = studentRepository;
         }

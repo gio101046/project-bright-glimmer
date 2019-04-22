@@ -32,10 +32,9 @@ namespace BrightGlimmer.Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMediatR();
             services.AddMediatR(typeof(Cqrs.Cqrs).Assembly); // Registers handlers in Cqrs project
-            services.AddScoped<SqliteStudentRepository, SqliteStudentRepository>(); /* REMOVE LATER */
-            services.AddScoped<MongoStudentRepository, MongoStudentRepository>(); /* REMOVE LATER */
-            services.AddDbContext<SqliteDatabaseContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<SqliteDatabaseContext>();
+            services.AddScoped<StudentRepository, StudentRepository>(); /* REMOVE LATER */
+            services.AddDbContext<SqliteContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<SqliteContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +55,7 @@ namespace BrightGlimmer.Api
             // Makes sure that the database is in fact created
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetRequiredService<SqliteDatabaseContext>();
+                var context = serviceScope.ServiceProvider.GetRequiredService<SqliteContext>();
                 context.Database.EnsureCreated();
             }
         }

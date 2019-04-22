@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrightGlimmer.Data.Migrations
 {
-    [DbContext(typeof(SqliteDatabaseContext))]
+    [DbContext(typeof(SqliteContext))]
     partial class SqliteDatabaseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
