@@ -7,11 +7,12 @@ using System.Text;
 
 namespace BrightGlimmer.Data.Repositories
 {
-    public class StudentRepository
+    public class SqliteStudentRepository
     {
         private readonly SqliteDatabaseContext context;
 
-        public StudentRepository(SqliteDatabaseContext context)
+
+        public SqliteStudentRepository(SqliteDatabaseContext context)
         {
             this.context = context;
         }

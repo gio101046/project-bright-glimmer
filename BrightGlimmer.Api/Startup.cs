@@ -32,7 +32,8 @@ namespace BrightGlimmer.Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMediatR();
             services.AddMediatR(typeof(Cqrs.Cqrs).Assembly); // Registers handlers in Cqrs project
-            services.AddScoped<StudentRepository, StudentRepository>(); /* REMOVE LATER */
+            services.AddScoped<SqliteStudentRepository, SqliteStudentRepository>(); /* REMOVE LATER */
+            services.AddScoped<MongoStudentRepository, MongoStudentRepository>(); /* REMOVE LATER */
             services.AddDbContext<SqliteDatabaseContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<SqliteDatabaseContext>();
         }

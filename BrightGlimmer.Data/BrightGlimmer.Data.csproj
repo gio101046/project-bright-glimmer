@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Domain\Interfaces\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
