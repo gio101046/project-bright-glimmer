@@ -1,4 +1,5 @@
-﻿using BrightGlimmer.Data.Domain;
+﻿using BrightGlimmer.Data.Interfaces;
+using BrightGlimmer.Domain;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
@@ -7,42 +8,8 @@ using System.Text;
 
 namespace BrightGlimmer.Data.Repositories
 {
-    public class StudentRepository
+    public class StudentRepository : Repository<Student>
     {
-        private readonly SqliteContext context;
-
-
-        public StudentRepository(SqliteContext context)
-        {
-            this.context = context;
-        }
-
-        public Student Create(Student student)
-        {
-            EntityEntry<Student> entry = context.Students.Add(student);
-            context.SaveChanges();
-            return entry.Entity;
-        }
-
-        public void Update(Student student)
-        {
-            context.SaveChanges();
-        }
-
-        public void Remove(Guid id)
-        {
-            context.Students.Remove(GetById(id));
-            context.SaveChanges();
-        }
-
-        public IQueryable<Student> GetAll()
-        {
-            return context.Students;
-        }
-
-        public Student GetById(Guid id)
-        {
-            return context.Students.Find(id);
-        }
+        public StudentRepository(BgContext context) : base(context) { }
     }
 }

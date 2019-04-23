@@ -1,4 +1,6 @@
 ﻿using BrightGlimmer.Data.Domain;
+using BrightGlimmer.Data.Interfaces;
+using BrightGlimmer.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,9 +8,9 @@ using System.Text;
 
 namespace BrightGlimmer.Data
 {
-    public class SqliteContext : DbContext
+    public class BgContext : DbContext, IUnitOfWork
     {
-        public SqliteContext(DbContextOptions<SqliteContext> options)
+        public BgContext(DbContextOptions<BgContext> options)
             : base(options)
         {
         }

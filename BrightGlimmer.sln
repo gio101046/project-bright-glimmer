@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Data", "Brigh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Services", "BrightGlimmer.CQRS\BrightGlimmer.Services.csproj", "{AA6A646D-C493-43DC-BBE4-FF253852D9BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrightGlimmer.Domain", "BrightGlimmer.Domain\BrightGlimmer.Domain.csproj", "{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AA6A646D-C493-43DC-BBE4-FF253852D9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA6A646D-C493-43DC-BBE4-FF253852D9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA6A646D-C493-43DC-BBE4-FF253852D9BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BrightGlimmer.Data.Domain
+namespace BrightGlimmer.Domain
 {
-    public class Phone
+    public class Phone : Entity
     {
-        public Guid Id { get; set; }
         public PhoneType Type { get; set; }
         public int AreaCode { get; set; }
         public int Number { get; set; }

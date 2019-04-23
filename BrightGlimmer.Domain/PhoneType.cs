@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BrightGlimmer.Data.Domain
+namespace BrightGlimmer.Domain
 {
     public enum PhoneType
     {
