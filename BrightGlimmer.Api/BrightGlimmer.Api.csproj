@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BrightGlimmer.CQRS\BrightGlimmer.Services.csproj" />
+    <ProjectReference Include="..\BrightGlimmer.Service\BrightGlimmer.Service.csproj" />
   </ItemGroup>
 
 </Project>

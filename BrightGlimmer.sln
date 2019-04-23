@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Api", "Bright
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Data", "BrightGlimmer.Data\BrightGlimmer.Data.csproj", "{E14193BB-31C7-4E3B-81F0-A930B866EC5D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Services", "BrightGlimmer.CQRS\BrightGlimmer.Services.csproj", "{AA6A646D-C493-43DC-BBE4-FF253852D9BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Domain", "BrightGlimmer.Domain\BrightGlimmer.Domain.csproj", "{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrightGlimmer.Domain", "BrightGlimmer.Domain\BrightGlimmer.Domain.csproj", "{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Service", "BrightGlimmer.Service\BrightGlimmer.Service.csproj", "{C22A2B7A-3F22-45B7-A05E-27D3598855B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{E14193BB-31C7-4E3B-81F0-A930B866EC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E14193BB-31C7-4E3B-81F0-A930B866EC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E14193BB-31C7-4E3B-81F0-A930B866EC5D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA6A646D-C493-43DC-BBE4-FF253852D9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA6A646D-C493-43DC-BBE4-FF253852D9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA6A646D-C493-43DC-BBE4-FF253852D9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA6A646D-C493-43DC-BBE4-FF253852D9BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E234F19-13EF-49A3-B8EB-FF7C9D2BF75F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C22A2B7A-3F22-45B7-A05E-27D3598855B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C22A2B7A-3F22-45B7-A05E-27D3598855B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C22A2B7A-3F22-45B7-A05E-27D3598855B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C22A2B7A-3F22-45B7-A05E-27D3598855B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
