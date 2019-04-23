@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BrightGlimmer.Data;
+﻿using BrightGlimmer.Data;
 using BrightGlimmer.Data.Interfaces;
-using BrightGlimmer.Data.Repositories; /* REMOVE LATER */
+using BrightGlimmer.Data.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace BrightGlimmer.Api
 {
@@ -31,11 +24,15 @@ namespace BrightGlimmer.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             services.AddMediatR();
             services.AddMediatR(typeof(Cqrs.Cqrs).Assembly); // Registers handlers in services project
-            services.AddScoped(typeof(IRepository<>)); /* FIGURE OUT LATER */
+
+            services.AddTransient(typeof(IQueryRepository<>), typeof(QueryRepository<>));
+            services.AddTransient(typeof(ICommandRepository<>), typeof(CommandRepository<>));
+
             services.AddDbContext<BgContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<BgContext>();
+            services.AddTransient<BgContext, BgContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,11 +51,11 @@ namespace BrightGlimmer.Api
             app.UseMvc();
 
             // Makes sure that the database is in fact created
-            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetRequiredService<BgContext>();
-                context.Database.EnsureCreated();
-            }
+            //using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var context = serviceScope.ServiceProvider.GetRequiredService<BgContext>();
+            //    context.Database.EnsureCreated();
+            //}
         }
     }
 }

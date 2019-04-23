@@ -1,5 +1,4 @@
-﻿using BrightGlimmer.Data.Domain;
-using BrightGlimmer.Data.Interfaces;
+﻿using BrightGlimmer.Data.Interfaces;
 using BrightGlimmer.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BrightGlimmer.Data.Interfaces
 {
-    public interface IRepository<T>
+    public interface ICommandRepository<T>
     {
         IUnitOfWork UnitOfWork { get; }
 

@@ -8,13 +8,13 @@ using System.Text;
 
 namespace BrightGlimmer.Data.Repositories
 {
-    public abstract class Repository<T> : IRepository<T> where T : Entity
+    public class CommandRepository<T> : ICommandRepository<T> where T : Entity
     {
         public IUnitOfWork UnitOfWork => context;
 
-        protected BgContext context;
+        protected readonly BgContext context;
 
-        public Repository(BgContext context)
+        public CommandRepository(BgContext context) /* TODO: Change way we inject context later */
         {
             this.context = context;
         }

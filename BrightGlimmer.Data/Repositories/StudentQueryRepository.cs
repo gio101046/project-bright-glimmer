@@ -8,8 +8,8 @@ using System.Text;
 
 namespace BrightGlimmer.Data.Repositories
 {
-    public class StudentRepository : Repository<Student>
+    public class StudentQueryRepository : QueryRepository<Student>
     {
-        public StudentRepository(BgContext context) : base(context) { }
+        public StudentQueryRepository(BgContext context) : base(context) { }
     }
 }

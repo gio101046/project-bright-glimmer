@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrightGlimmer.Data.Migrations
 {
-    [DbContext(typeof(SqliteContext))]
+    [DbContext(typeof(BgContext))]
     [Migration("20190420001348_CreateDatabase")]
     partial class CreateDatabase
     {

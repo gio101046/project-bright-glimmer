@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using BrightGlimmer.Services.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,39 +17,15 @@ namespace BrightGlimmer.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<ActionResult> GetAll()
         {
-            var customers = mediator.GetAll();
-            if (customers == null)
+            var students = await mediator.Send(new GetAllStudentsQuery());
+            if (students == null)
             {
                 return NotFound();
             }
 
-            return new ObjectResult(customers);
+            return new JsonResult(students);
         }
-
-        //[HttpGet("createstudent")]
-        //public IActionResult CreateStudent()
-        //{
-        //    var created = studentRepository.Create(new Data.Domain.Student
-        //    {
-        //        Id = Guid.NewGuid(),
-        //        FirstName = "Giovani",
-        //        LastName = "Rodriguez",
-        //        Email = "giovaniluisrodriguez@gmail.com",
-        //        Phones = new List<Data.Domain.Phone>
-        //        {
-        //            new Data.Domain.Phone
-        //            {
-        //                Id = Guid.NewGuid(),
-        //                AreaCode = 305,
-        //                Number = 8888888,
-        //                Type = Data.Domain.PhoneType.HOMEPHONE
-        //            }
-        //        }
-        //    });
-
-        //    return new ObjectResult(created);
-        //}
     }
 }

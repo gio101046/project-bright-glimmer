@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Interfaces\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Handlers\CommandHandlers\" />
     <Folder Include="Commands\" />
     <Folder Include="Handlers\QueryHandlers\" />
