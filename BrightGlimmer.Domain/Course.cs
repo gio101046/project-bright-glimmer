@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace BrightGlimmer.Domain
 {
+    [Table("Courses")]
     public class Course : Entity
     {
         public string Name { get; set; }

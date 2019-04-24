@@ -20,7 +20,11 @@ namespace BrightGlimmer.Services.Handlers.QueryHandlers
 
         public async Task<IEnumerable<Student>> Handle(GetAllStudentsQuery request, CancellationToken cancellationToken)
         {
-            return await repository.Get().ToListAsync();
+            return await repository.Get()
+                                   .Include(x => x.Phones)
+                                   .Include(x => x.Address)
+                                   .Include(x => x.AssignedCourses)
+                                   .ToListAsync();
         }
     }
 }
