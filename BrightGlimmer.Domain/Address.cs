@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -14,7 +15,9 @@ namespace BrightGlimmer.Domain
         public string StateCode { get; set; }
         public string County { get; set; }
         public string ZipCode { get; set; }
+        [JsonIgnore]
         public decimal Latitude { get; set; }
+        [JsonIgnore]
         public decimal Longitude { get; set; }
     }
 }

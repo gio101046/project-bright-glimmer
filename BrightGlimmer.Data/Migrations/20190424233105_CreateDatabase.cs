@@ -147,6 +147,12 @@ namespace BrightGlimmer.Data.Migrations
                 name: "IX_Students_AddressId",
                 table: "Students",
                 column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_StudentNumber",
+                table: "Students",
+                column: "StudentNumber",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

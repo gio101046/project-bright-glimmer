@@ -19,12 +19,13 @@ namespace BrightGlimmer.Data
         // dotnet ef migrations update --project ./BrightGlimmer.Data --startup-project ./BrightGlimmer.Api
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Student>()
-                        .HasMany(x => x.Phones);
-            modelBuilder.Entity<Student>()
-                        .HasOne(x => x.Address);
-            modelBuilder.Entity<Student>()
-                        .HasMany(x => x.AssignedCourses);
+            modelBuilder.Entity<Student>(entity =>
+            {
+                entity.HasIndex(e => e.StudentNumber).IsUnique();
+                entity.HasOne(e => e.Address);
+                entity.HasMany(e => e.Phones);
+                entity.HasMany(e => e.AssignedCourses);
+            });
             modelBuilder.Entity<AssignedCourse>()
                         .HasOne(x => x.Course);
         }

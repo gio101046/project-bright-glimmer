@@ -155,6 +155,9 @@ namespace BrightGlimmer.Data.Migrations
 
                     b.HasIndex("AddressId");
 
+                    b.HasIndex("StudentNumber")
+                        .IsUnique();
+
                     b.ToTable("Students");
                 });
 
