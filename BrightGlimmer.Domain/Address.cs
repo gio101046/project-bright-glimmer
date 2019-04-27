@@ -16,8 +16,25 @@ namespace BrightGlimmer.Domain
         public string County { get; set; }
         public string ZipCode { get; set; }
         [JsonIgnore]
-        public decimal Latitude { get; set; }
+        public decimal Latitude { get; private set; }
         [JsonIgnore]
-        public decimal Longitude { get; set; }
+        public decimal Longitude { get; private set; }
+
+        private Address() { }
+
+        public Address(string streetAddress1,
+                       string streetAddress2,
+                       string city,
+                       string stateCode,
+                       string county,
+                       string zipCode)
+        {
+            StreetAddress1 = streetAddress1;
+            StreetAddress2 = streetAddress2;
+            City = city;
+            StateCode = stateCode;
+            County = county;
+            ZipCode = zipCode;
+        }
     }
 }

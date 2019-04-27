@@ -14,5 +14,14 @@ namespace BrightGlimmer.Domain
 
         public Student Student { get; set; }
         public Course Course { get; set; }
+
+        private AssignedCourse() { }
+
+        public AssignedCourse(decimal grade, bool isActive, string term)
+        {
+            Grade = grade;
+            IsActive = isActive;
+            Term = term;
+        }
     }
 }
