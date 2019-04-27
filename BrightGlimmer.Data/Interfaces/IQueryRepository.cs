@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BrightGlimmer.Data.Interfaces
 {
@@ -12,5 +13,7 @@ namespace BrightGlimmer.Data.Interfaces
         IQueryable<T> Get();
 
         T Get(Guid id);
+
+        Task<T> GetAsync(Guid id);
     }
 }

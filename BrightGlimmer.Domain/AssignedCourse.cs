@@ -8,14 +8,20 @@ namespace BrightGlimmer.Domain
     [Table("AssignedCourses")]
     public class AssignedCourse : Entity
     {
-        public decimal Grade { get; set; }
+        public decimal? Grade { get; set; }
         public bool IsActive { get; set; }
         public string Term { get; set; } 
 
-        public Student Student { get; set; }
-        public Course Course { get; set; }
+        public Student Student { get; private set; }
+        public Course Course { get; private set; }
 
         private AssignedCourse() { }
+
+        public AssignedCourse(bool isActive, string term)
+        {
+            IsActive = isActive;
+            Term = term;
+        }
 
         public AssignedCourse(decimal grade, bool isActive, string term)
         {

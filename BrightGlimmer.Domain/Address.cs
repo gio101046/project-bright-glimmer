@@ -36,5 +36,30 @@ namespace BrightGlimmer.Domain
             County = county;
             ZipCode = zipCode;
         }
+
+        public Address(string streetAddress1,
+                       string streetAddress2,
+                       string city,
+                       string stateCode,
+                       string county,
+                       string zipCode,
+                       decimal latitude,
+                       decimal longitude)
+        {
+            StreetAddress1 = streetAddress1;
+            StreetAddress2 = streetAddress2;
+            City = city;
+            StateCode = stateCode;
+            County = county;
+            ZipCode = zipCode;
+            Latitude = latitude;
+            Longitude = longitude;
+        }
+
+        public void SetLatitudeAndLongitude(decimal latitude, decimal longitude)
+        {
+            Latitude = latitude;
+            Longitude = longitude;
+        }
     }
 }

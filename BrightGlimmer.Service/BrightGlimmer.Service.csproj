@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Handlers\QueryHandlers\" />
-    <Folder Include="Queries\" />
   </ItemGroup>
 
   <ItemGroup>

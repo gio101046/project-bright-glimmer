@@ -1,6 +1,7 @@
 ﻿using BrightGlimmer.Data;
 using BrightGlimmer.Data.Interfaces;
 using BrightGlimmer.Data.Repositories;
+using BrightGlimmer.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,8 @@ namespace BrightGlimmer.Api
 
             services.AddTransient(typeof(IQueryRepository<>), typeof(QueryRepository<>));
             services.AddTransient(typeof(ICommandRepository<>), typeof(CommandRepository<>));
+
+            services.AddTransient(typeof(IQueryRepository<Student>), typeof(StudentQueryRepository));
 
             services.AddDbContext<BgContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<BgContext, BgContext>();

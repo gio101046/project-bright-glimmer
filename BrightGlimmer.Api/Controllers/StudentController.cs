@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using BrightGlimmer.Service.Commands;
-using BrightGlimmer.Services.Queries;
+using BrightGlimmer.Service.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,10 +19,18 @@ namespace BrightGlimmer.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAll()
+        public async Task<ActionResult> Get()
         {
-            var students = await mediator.Send(new GetAllStudentsQuery());
+            var students = await mediator.Send(new GetStudentsQuery());
             return new JsonResult(students);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult> Get(Guid id)
+        {
+            var student = await mediator.Send(new GetStudentQuery(id));
+            return new JsonResult(student);
         }
 
         [HttpPost]
