@@ -39,5 +39,11 @@ namespace BrightGlimmer.Api.Controllers
             var student = await mediator.Send(command);
             return new JsonResult(student);
         }
+
+        [HttpPut]
+        public async Task<ActionResult> Update([FromBody]UpdateStudentCommand command)
+        {
+
+        }
     }
 }

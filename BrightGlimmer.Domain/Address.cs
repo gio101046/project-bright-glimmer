@@ -56,6 +56,11 @@ namespace BrightGlimmer.Domain
             Longitude = longitude;
         }
 
+        public void Update(Address address)
+        {
+
+        }
+
         public void SetLatitudeAndLongitude(decimal latitude, decimal longitude)
         {
             Latitude = latitude;

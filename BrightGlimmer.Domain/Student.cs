@@ -41,6 +41,16 @@ namespace BrightGlimmer.Domain
             this.phones = phones;
         }
 
+        public void Update(Student student)
+        {
+            FirstName = student.FirstName;
+            MiddleName = student.MiddleName;
+            LastName = student.LastName;
+            Email = student.Email;
+
+            if ()
+        }
+
         public void AddPhone(Phone phone)
         {
             phones.Add(phone);

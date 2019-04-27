@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BrightGlimmer.Data.Repositories
 {
@@ -42,6 +43,11 @@ namespace BrightGlimmer.Data.Repositories
         public virtual T Get(Guid id)
         {
             return context.Set<T>().Find(id);
+        }
+
+        public virtual async Task<T> GetAsync(Guid id)
+        {
+            return await context.Set<T>().SingleAsync(x => x.Id == id);
         }
     }
 }
