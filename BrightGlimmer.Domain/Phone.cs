@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -8,9 +9,12 @@ namespace BrightGlimmer.Domain
     [Table("Phones")]
     public class Phone : Entity
     {
-        public PhoneType Type { get; set; }
-        public int AreaCode { get; set; }
-        public int Number { get; set; }
+        [JsonProperty]
+        public PhoneType Type { get; private set; }
+        [JsonProperty]
+        public int AreaCode { get; private set; }
+        [JsonProperty]
+        public int Number { get; private set; }
 
         private Phone() { }
 
@@ -19,6 +23,20 @@ namespace BrightGlimmer.Domain
             Type = type;
             AreaCode = areaCode;
             Number = number;
+        }
+
+        public Phone(Phone phone)
+        {
+            Type = phone.Type;
+            AreaCode = phone.AreaCode;
+            Number = phone.Number;
+        }
+
+        internal void Update(Phone phone)
+        {
+            Type = phone.Type;
+            AreaCode = phone.AreaCode;
+            Number = Number;
         }
     }
 }

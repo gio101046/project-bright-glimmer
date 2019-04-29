@@ -9,12 +9,12 @@ namespace BrightGlimmer.Domain
     [Table("Addresses")]
     public class Address : Entity
     {
-        public string StreetAddress1 { get; set; }
-        public string StreetAddress2 { get; set; }
-        public string City { get; set; }
-        public string StateCode { get; set; }
-        public string County { get; set; }
-        public string ZipCode { get; set; }
+        public string StreetAddress1 { get; private set; }
+        public string StreetAddress2 { get; private set; }
+        public string City { get; private set; }
+        public string StateCode { get; private set; }
+        public string County { get; private set; }
+        public string ZipCode { get; private set; }
         [JsonIgnore]
         public decimal Latitude { get; private set; }
         [JsonIgnore]
@@ -56,9 +56,14 @@ namespace BrightGlimmer.Domain
             Longitude = longitude;
         }
 
-        public void Update(Address address)
+        internal void Update(Address address)
         {
-
+            StreetAddress1 = address.StreetAddress1;
+            StreetAddress2 = address.StreetAddress2;
+            City = address.City;
+            StateCode = address.StateCode;
+            County = address.County;
+            ZipCode = address.ZipCode;
         }
 
         public void SetLatitudeAndLongitude(decimal latitude, decimal longitude)

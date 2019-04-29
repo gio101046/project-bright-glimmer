@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BrightGlimmer.Domain
 {
-    public class Entity
+    public abstract class Entity
     {
         [Key]
         public Guid Id { get; private set; }

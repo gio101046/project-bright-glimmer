@@ -29,5 +29,19 @@ namespace BrightGlimmer.Domain
             IsActive = isActive;
             Term = term;
         }
+
+        public AssignedCourse(AssignedCourse assignedCourse)
+        {
+            Grade = assignedCourse.Grade;
+            IsActive = assignedCourse.IsActive;
+            Term = assignedCourse.Term;
+        }
+
+        public void Update(AssignedCourse assignedCourse)
+        {
+            Grade = assignedCourse.Grade;
+            IsActive = assignedCourse.IsActive;
+            Term = assignedCourse.Term;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
 
 namespace BrightGlimmer.Domain
@@ -47,18 +48,33 @@ namespace BrightGlimmer.Domain
             MiddleName = student.MiddleName;
             LastName = student.LastName;
             Email = student.Email;
+        }
 
-            if ()
+        public void UpdateAddress(Address address)
+        {
+            Address.Update(address);
+        }
+
+        public bool UpdatePhone(Phone phone)
+        {
+            var existingPhone = Phones.SingleOrDefault(x => x.Id == phone.Id);
+            if (existingPhone == null)
+            {
+                return false;
+            }
+
+            existingPhone.Update(phone);
+            return true;
         }
 
         public void AddPhone(Phone phone)
         {
-            phones.Add(phone);
+            phones.Add(new Phone(phone));
         }
 
         public void AddAssignedCourse(AssignedCourse assignedCourse)
         {
-            assignedCourses.Add(assignedCourse);
+            assignedCourses.Add(new AssignedCourse(assignedCourse));
         }
     }
 }

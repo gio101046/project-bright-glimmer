@@ -8,9 +8,9 @@ namespace BrightGlimmer.Domain
     [Table("Courses")]
     public class Course : Entity
     {
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public string Code { get; private set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Code { get; set; }
 
         private Course() { }
 
@@ -19,6 +19,13 @@ namespace BrightGlimmer.Domain
             Name = name;
             Description = description;
             Code = code;
+        }
+
+        public void Update(Course course)
+        {
+            Name = course.Name;
+            Description = course.Description;
+            Code = course.Code;
         }
     }
 }
