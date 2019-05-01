@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace BrightGlimmer.Data.Repositories
 {
+    /* TODO: REMOVE MAYBE? */
     public class StudentQueryRepository : QueryRepository<Student>
     {
         public StudentQueryRepository(BgContext context) : base(context) { }
@@ -34,9 +35,9 @@ namespace BrightGlimmer.Data.Repositories
         public override async Task<Student> GetAsync(Guid id)
         {
             return await context.Students
-                                .Include(x => x.Phones)
-                                .Include(x => x.Address)
-                                .Include(x => x.AssignedCourses)
+                                //.Include(x => x.Phones)
+                                //.Include(x => x.Address)
+                                //.Include(x => x.AssignedCourses)
                                 .SingleAsync(x => x.Id == id);
         }
     }

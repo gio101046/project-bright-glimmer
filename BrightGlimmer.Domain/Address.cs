@@ -20,7 +20,7 @@ namespace BrightGlimmer.Domain
         [JsonIgnore]
         public decimal Longitude { get; private set; }
 
-        private Address() { }
+        protected Address() { }
 
         public Address(string streetAddress1,
                        string streetAddress2,

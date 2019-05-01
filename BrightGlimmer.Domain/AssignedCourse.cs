@@ -12,10 +12,10 @@ namespace BrightGlimmer.Domain
         public bool IsActive { get; set; }
         public string Term { get; set; } 
 
-        public Student Student { get; private set; }
-        public Course Course { get; private set; }
+        public virtual Student Student { get; private set; }
+        public virtual Course Course { get; private set; }
 
-        private AssignedCourse() { }
+        protected AssignedCourse() { }
 
         public AssignedCourse(bool isActive, string term)
         {

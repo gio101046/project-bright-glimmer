@@ -16,7 +16,7 @@ namespace BrightGlimmer.Domain
         [JsonProperty]
         public int Number { get; private set; }
 
-        private Phone() { }
+        protected Phone() { }
 
         public Phone(PhoneType type, int areaCode, int number)
         {

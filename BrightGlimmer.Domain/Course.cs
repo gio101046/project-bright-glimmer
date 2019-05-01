@@ -12,7 +12,7 @@ namespace BrightGlimmer.Domain
         public string Description { get; set; }
         public string Code { get; set; }
 
-        private Course() { }
+        protected Course() { }
 
         public Course(string name, string description, string code)
         {

@@ -2,6 +2,7 @@
 using BrightGlimmer.Data.Interfaces;
 using BrightGlimmer.Data.Repositories;
 using BrightGlimmer.Domain;
+using JsonNet.PrivateSettersContractResolvers;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,7 @@ namespace BrightGlimmer.Api
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                     .AddJsonOptions(options =>
                     {
-                        options.SerializerSettings.ContractResolver = new PrivateSetterContractResolver()
+                        options.SerializerSettings.ContractResolver = new PrivateSetterContractResolver();
                     });
 
             services.AddMediatR();
@@ -37,9 +38,8 @@ namespace BrightGlimmer.Api
             services.AddTransient(typeof(IQueryRepository<>), typeof(QueryRepository<>));
             services.AddTransient(typeof(ICommandRepository<>), typeof(CommandRepository<>));
 
-            services.AddTransient(typeof(IQueryRepository<Student>), typeof(StudentQueryRepository));
-
-            services.AddDbContext<BgContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<BgContext>(options => options.UseLazyLoadingProxies()
+                                                               .UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<BgContext, BgContext>();
         }
 
@@ -59,11 +59,11 @@ namespace BrightGlimmer.Api
             app.UseMvc();
 
             // Makes sure that the database is in fact created
-            //using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            //{
-            //    var context = serviceScope.ServiceProvider.GetRequiredService<BgContext>();
-            //    context.Database.EnsureCreated();
-            //}
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<BgContext>();
+                context.Database.EnsureCreated();
+            }
         }
     }
 }

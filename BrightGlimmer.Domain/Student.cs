@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,16 +18,16 @@ namespace BrightGlimmer.Domain
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public Address Address { get; private set; }
+        public virtual Address Address { get; private set; }
         public string ProfilePictureUrl { get; set; }
 
         private readonly List<Phone> phones = new List<Phone>();
-        public IReadOnlyList<Phone> Phones => phones;
+        public virtual IReadOnlyList<Phone> Phones => phones;
 
         private readonly List<AssignedCourse> assignedCourses = new List<AssignedCourse>();
-        public IReadOnlyList<AssignedCourse> AssignedCourses => assignedCourses;
+        public virtual IReadOnlyList<AssignedCourse> AssignedCourses => assignedCourses;
 
-        private Student() { }
+        protected Student() { }
 
         public Student(string firstName, 
                        string lastName, 
