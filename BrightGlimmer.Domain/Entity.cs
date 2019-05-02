@@ -24,7 +24,7 @@ namespace BrightGlimmer.Domain
             ModifiedDate = DateTime.UtcNow;
         }
 
-        protected void Delete()
+        public void Delete()
         {
             IsDeleted = true;
         }

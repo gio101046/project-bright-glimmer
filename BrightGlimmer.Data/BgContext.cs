@@ -3,6 +3,7 @@ using BrightGlimmer.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace BrightGlimmer.Data
@@ -28,6 +29,21 @@ namespace BrightGlimmer.Data
             });
             modelBuilder.Entity<AssignedCourse>()
                         .HasOne(x => x.Course);
+
+            // Make all entities soft deletables and filter by soft deleted on queries
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                entityType.GetOrAddProperty("IsDeleted", typeof(bool));
+
+                var parameter = Expression.Parameter(entityType.ClrType);
+                var propertyMethodInfo = typeof(EF).GetMethod("Property").MakeGenericMethod(typeof(bool));
+                var isDeletedProperty = Expression.Call(propertyMethodInfo, parameter, Expression.Constant("IsDeleted"));
+
+                BinaryExpression compareExpression = Expression.MakeBinary(ExpressionType.Equal, isDeletedProperty, Expression.Constant(false));
+
+                var lambda = Expression.Lambda(compareExpression, parameter);
+                modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
+            }
         }
 
         public DbSet<Student> Students { get; set; }

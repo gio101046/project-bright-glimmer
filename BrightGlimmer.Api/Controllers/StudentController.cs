@@ -46,5 +46,12 @@ namespace BrightGlimmer.Api.Controllers
             var student = await mediator.Send(command);
             return new JsonResult(student);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            var success = await mediator.Send(new DeleteStudentCommand(id));
+            return new JsonResult(success);
+        }
     }
 }
