@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace BrightGlimmer.Api.Controllers
 {
@@ -15,9 +17,34 @@ namespace BrightGlimmer.Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<string> Get()
+        public async Task<ActionResult> Get()
         {
-            return "";
+            return new JsonResult("");
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult> Get(Guid id)
+        {
+            return new JsonResult("");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create([FromBody]object command)
+        { 
+            return new JsonResult("");
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Update([FromBody]object command)
+        {
+            return new JsonResult("");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            return new JsonResult("");
         }
     }
 }
