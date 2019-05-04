@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Domain", "Bri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightGlimmer.Service", "BrightGlimmer.Service\BrightGlimmer.Service.csproj", "{C22A2B7A-3F22-45B7-A05E-27D3598855B8}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "BrightGlimmer.Client", "BrightGlimmer.Client\BrightGlimmer.Client.njsproj", "{6971AB72-FBC2-4F3F-A59C-319E377A9A51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C22A2B7A-3F22-45B7-A05E-27D3598855B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C22A2B7A-3F22-45B7-A05E-27D3598855B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C22A2B7A-3F22-45B7-A05E-27D3598855B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6971AB72-FBC2-4F3F-A59C-319E377A9A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6971AB72-FBC2-4F3F-A59C-319E377A9A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6971AB72-FBC2-4F3F-A59C-319E377A9A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6971AB72-FBC2-4F3F-A59C-319E377A9A51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
