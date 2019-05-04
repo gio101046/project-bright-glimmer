@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "9db1634f-9b98-4bb9-ba81-04dae697cfbc",
+		"name": "Bright Glimmer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:44335/api/student/161e586f-9e7c-45dc-9fed-8cae0fc67d2d",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44335",
+							"path": [
+								"api",
+								"student",
+								"161e586f-9e7c-45dc-9fed-8cae0fc67d2d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:44335/api/student",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44335",
+							"path": [
+								"api",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"FirstName\": \"Giovani\",\n\t\"MiddleName\": \"Luis\",\n\t\"LastName\": \"Rodriguez\",\n\t\"Email\": \"grodriguez@test.com\",\n\t\"Phones\": \n\t[\n\t\t{\n\t\t\t\"Type\": \"HOMEPHONE\",\n\t\t\t\"AreaCode\": \"888\",\n\t\t\t\"Number\": \"8888888\"\n\t\t}\n\t],\n\t\"Address\":\n\t{\n\t\t\"StreetAddress1\":\"1234 Johnson St\",\n\t\t\"StreetAddress2\":\"APT 1301\",\n\t\t\"City\":\"Japan City\",\n\t\t\"StateCode\":\"JP\",\n\t\t\"County\":\"Japan County\",\n\t\t\"ZipCode\":\"99999\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44335/api/student",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44335",
+							"path": [
+								"api",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Giovani lololol\",\n    \"middleName\": \"Luis\",\n    \"lastName\": \"Rodriguez\",\n    \"email\": \"groez@test.com\",\n    \"address\": {\n        \"streetAddress1\": \"1234 Johnson St 1111\",\n        \"streetAddress2\": \"APT 1301 lolololol\",\n        \"city\": \"Japan lolololol City\",\n        \"stateCode\": \"JP loolol\",\n        \"county\": \"Japan lololol County\",\n        \"zipCode\": 33333,\n        \"id\": \"277a7492-2b10-420c-8d81-1a837bedd826\"\n    },\n    \"profilePictureUrl\": null,\n    \"phones\": [\n        {\n            \"type\": 1,\n            \"areaCode\": 999,\n            \"number\": 8888888,\n            \"id\": \"8d2a37e0-9d67-4b67-9ade-90587ef3545b\"\n        }\n    ],\n    \"assignedCourses\": [],\n    \"id\": \"161e586f-9e7c-45dc-9fed-8cae0fc67d2d\"\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44335/api/student",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44335",
+							"path": [
+								"api",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:44335/api/student/161e586f-9e7c-45dc-9fed-8cae0fc67d2d",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44335",
+							"path": [
+								"api",
+								"student",
+								"161e586f-9e7c-45dc-9fed-8cae0fc67d2d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
