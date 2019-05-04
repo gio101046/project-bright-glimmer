@@ -1,4 +1,5 @@
-﻿using BrightGlimmer.Data;
+﻿using BrightGlimmer.Api.Domain;
+using BrightGlimmer.Data;
 using BrightGlimmer.Data.Interfaces;
 using BrightGlimmer.Data.Repositories;
 using BrightGlimmer.Domain;
@@ -26,18 +27,22 @@ namespace BrightGlimmer.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                     .AddJsonOptions(options =>
                     {
+                        // Allow private fields to deserialize
                         options.SerializerSettings.ContractResolver = new PrivateSetterContractResolver();
                     });
 
+            /* Setup MediatR */
             services.AddMediatR();
             services.AddMediatR(typeof(Cqrs.Cqrs).Assembly); // Registers handlers in services project
 
+            /* Setup Injectable Repos */
             services.AddTransient(typeof(IQueryRepository<>), typeof(QueryRepository<>));
             services.AddTransient(typeof(ICommandRepository<>), typeof(CommandRepository<>));
 
+            /* Configure EF Core DbContext */
             services.AddDbContext<BgContext>(options => options.UseLazyLoadingProxies()
                                                                .UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<BgContext, BgContext>();

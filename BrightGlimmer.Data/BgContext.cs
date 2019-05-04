@@ -17,7 +17,7 @@ namespace BrightGlimmer.Data
 
 
         // dotnet ef migrations add NAME --project ./BrightGlimmer.Data --startup-project ./BrightGlimmer.Api
-        // dotnet ef migrations update --project ./BrightGlimmer.Data --startup-project ./BrightGlimmer.Api
+        // dotnet ef database update --project ./BrightGlimmer.Data --startup-project ./BrightGlimmer.Api
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>(entity =>

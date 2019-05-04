@@ -3,14 +3,16 @@ using System;
 using BrightGlimmer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrightGlimmer.Data.Migrations
 {
     [DbContext(typeof(BgContext))]
-    partial class BgContextModelSnapshot : ModelSnapshot
+    [Migration("20190504201523_Update-Database")]
+    partial class UpdateDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
