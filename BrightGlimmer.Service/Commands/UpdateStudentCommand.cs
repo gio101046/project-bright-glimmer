@@ -1,4 +1,4 @@
-﻿using BrightGlimmer.Domain;
+﻿using BrightGlimmer.Domain.Service;
 using MediatR;
 using System;
 using System.Collections.Generic;

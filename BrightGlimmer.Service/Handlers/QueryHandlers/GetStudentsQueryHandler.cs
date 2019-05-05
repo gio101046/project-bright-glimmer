@@ -1,5 +1,5 @@
 ﻿using BrightGlimmer.Data.Interfaces;
-using BrightGlimmer.Domain;
+using BrightGlimmer.Domain.Service;
 using BrightGlimmer.Service.Queries;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

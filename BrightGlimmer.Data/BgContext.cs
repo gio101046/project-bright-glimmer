@@ -1,5 +1,5 @@
 ﻿using BrightGlimmer.Data.Interfaces;
-using BrightGlimmer.Domain;
+using BrightGlimmer.Domain.Service;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,9 +15,8 @@ namespace BrightGlimmer.Data
         {
         }
 
-
-        // dotnet ef migrations add NAME --project ./BrightGlimmer.Data --startup-project ./BrightGlimmer.Api
-        // dotnet ef database update --project ./BrightGlimmer.Data --startup-project ./BrightGlimmer.Api
+        // dotnet ef migrations add NAME --project ./BrightGlimmer.Data --startup-project ./BrightGlimmer.Api --context BgContext
+        // dotnet ef database update --project ./BrightGlimmer.Data --startup-project ./BrightGlimmer.Api --context BgContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>(entity =>

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
-namespace BrightGlimmer.Domain
+namespace BrightGlimmer.Domain.Service
 {
     [Table("Students")]
     public class Student : Entity

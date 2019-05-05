@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace BrightGlimmer.Domain
+namespace BrightGlimmer.Domain.Service
 {
     [Table("AssignedCourses")]
     public class AssignedCourse : Entity

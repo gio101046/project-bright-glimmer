@@ -29,6 +29,7 @@ namespace BrightGlimmer.Domain
             IsDeleted = true;
         }
 
+        /* TODO: Currently not working when entities modified */
         protected void MarkModified()
         {
             ModifiedDate = DateTime.UtcNow;

@@ -1,5 +1,5 @@
 ﻿using BrightGlimmer.Data.Interfaces;
-using BrightGlimmer.Domain;
+using BrightGlimmer.Domain.Service;
 using BrightGlimmer.Service.Commands;
 using MediatR;
 using System;

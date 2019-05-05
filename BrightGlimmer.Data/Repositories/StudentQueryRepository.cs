@@ -1,5 +1,5 @@
 ﻿using BrightGlimmer.Data.Interfaces;
-using BrightGlimmer.Domain;
+using BrightGlimmer.Domain.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
