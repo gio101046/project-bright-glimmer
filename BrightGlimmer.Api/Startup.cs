@@ -1,5 +1,4 @@
-﻿using BrightGlimmer.Api.Domain;
-using BrightGlimmer.Data;
+﻿using BrightGlimmer.Data;
 using BrightGlimmer.Data.Interfaces;
 using BrightGlimmer.Data.Repositories;
 using BrightGlimmer.Domain;
