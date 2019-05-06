@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BrightGlimmer.Data;
+using BrightGlimmer.Service.Interfaces;
+using BrightGlimmer.Service.Services;
 using JsonNet.PrivateSettersContractResolvers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -26,7 +28,7 @@ namespace BrightGlimmer.Auth
             Configuration = configuration;
         }
 
-        public static IConfiguration Configuration { get; private set; }
+        public IConfiguration Configuration { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -63,6 +65,9 @@ namespace BrightGlimmer.Auth
             services.AddDbContext<AuthContext>(options => options.UseLazyLoadingProxies()
                                                                  .UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<AuthContext, AuthContext>();
+
+            /* Inject Services */
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

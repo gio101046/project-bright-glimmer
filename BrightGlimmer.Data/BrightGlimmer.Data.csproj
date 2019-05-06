@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BrightGlimmer.Domain\BrightGlimmer.Domain.csproj" />
+    <ProjectReference Include="..\BrightGlimmer.Tools\BrightGlimmer.Tools.csproj" />
   </ItemGroup>
 
 </Project>

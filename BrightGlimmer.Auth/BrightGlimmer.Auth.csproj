@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BrightGlimmer.Data\BrightGlimmer.Data.csproj" />
     <ProjectReference Include="..\BrightGlimmer.Domain\BrightGlimmer.Domain.csproj" />
+    <ProjectReference Include="..\BrightGlimmer.Service\BrightGlimmer.Service.csproj" />
   </ItemGroup>
 
 </Project>
