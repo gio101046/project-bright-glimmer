@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BrightGlimmer.Auth.Controllers
 {
@@ -10,36 +15,26 @@ namespace BrightGlimmer.Auth.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        // GET api/values
+        [AllowAnonymous]
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult Login(string username, string password)
         {
-            return new string[] { "value1", "value2" };
-        }
+            /* TODO: Move token creation to service */
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(Startup.Configuration.GetSection("Keys")["JwtPrivateKey"]);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.NameIdentifier, username)
+                }),
+                Expires = DateTime.UtcNow.AddDays(3),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var tokenSecurity = tokenHandler.CreateToken(tokenDescriptor);
+            var token = tokenHandler.WriteToken(tokenSecurity);
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return new JsonResult(token);
         }
     }
 }

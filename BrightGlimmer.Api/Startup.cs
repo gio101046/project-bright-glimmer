@@ -4,12 +4,15 @@ using BrightGlimmer.Data.Repositories;
 using BrightGlimmer.Domain;
 using JsonNet.PrivateSettersContractResolvers;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace BrightGlimmer.Api
 {
@@ -33,6 +36,26 @@ namespace BrightGlimmer.Api
                         options.SerializerSettings.ContractResolver = new PrivateSetterContractResolver();
                     });
 
+            /* Setup Jwt Authentication */
+            var key = Encoding.UTF8.GetBytes(Configuration.GetSection("Keys")["JwtPrivateKey"]); /* TODO: Change to Azure Key Vault */
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false, /* TODO: Add validation for both issuer and audience */
+                    ValidateAudience = false
+                };
+            });
+
             /* Setup MediatR */
             services.AddMediatR();
             services.AddMediatR(typeof(Cqrs.Cqrs).Assembly); // Registers handlers in services project
@@ -43,7 +66,7 @@ namespace BrightGlimmer.Api
 
             /* Configure EF Core DbContext */
             services.AddDbContext<BgContext>(options => options.UseLazyLoadingProxies()
-                                                               .UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                                                               .UseSqlite(Configuration.GetConnectionString("DefaultConnection"))); /* TODO: Change to Azure Key Vault */
             services.AddTransient<BgContext, BgContext>();
         }
 
@@ -60,6 +83,7 @@ namespace BrightGlimmer.Api
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
 
             // Makes sure that the database is in fact created

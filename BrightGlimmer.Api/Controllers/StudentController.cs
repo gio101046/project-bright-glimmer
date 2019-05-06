@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 using BrightGlimmer.Service.Commands;
 using BrightGlimmer.Service.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrightGlimmer.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase
