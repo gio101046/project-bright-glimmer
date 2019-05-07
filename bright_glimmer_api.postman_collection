@@ -11,6 +11,16 @@
 				{
 					"name": "Get",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJHaW92YW5pIiwibmJmIjoxNTU3MTA1NTYwLCJleHAiOjE1NTczNjQ3NjAsImlhdCI6MTU1NzEwNTU2MH0.rBc6WoIrxdRwzGSTFgTUq9nzEsTLRGfgIw23gA6FbmM",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -18,7 +28,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://localhost:44335/api/student/161e586f-9e7c-45dc-9fed-8cae0fc67d2d",
+							"raw": "https://localhost:44335/api/student/fef03478-3914-41b3-b818-2dfb804fa05c",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -27,7 +37,7 @@
 							"path": [
 								"api",
 								"student",
-								"161e586f-9e7c-45dc-9fed-8cae0fc67d2d"
+								"fef03478-3914-41b3-b818-2dfb804fa05c"
 							]
 						}
 					},
@@ -139,6 +149,108 @@
 								"api",
 								"student",
 								"161e586f-9e7c-45dc-9fed-8cae0fc67d2d"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJnaW8xMDEwNDYiLCJlbWFpbCI6Imdpb3ZhbmlsdWlzcm9kcmlndWV6QGdtYWlsLmNvbSIsIm5iZiI6MTU1NzI0OTMzMSwiZXhwIjoxNTU4NDU4OTMxLCJpYXQiOjE1NTcyNDkzMzF9.MTplFJQEcJSml-_aZLcPG5t5l6NLmoov1V4FEDHoLvU",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "49381306-54ea-4914-a056-933a1b8c07c0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9807c449-686e-4696-8e1a-05bc3f2a43b1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://localhost:44369/api/user?username=gio101046&password=admin1234",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44369",
+							"path": [
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "gio101046"
+								},
+								{
+									"key": "password",
+									"value": "admin1234"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": {\n\t\t\"username\": \"gio101046\",\n\t\t\"email\": \"giovaniluisrodriguez@gmail.com\",\n\t\t\"firstname\": \"Giovani\",\n\t\t\"lastname\": \"Rodriguez\"\n\t},\n\t\"password\": \"admin1234\"\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44369/api/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44369",
+							"path": [
+								"api",
+								"user"
 							]
 						}
 					},
